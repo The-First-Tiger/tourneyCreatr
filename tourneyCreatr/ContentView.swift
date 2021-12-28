@@ -9,8 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            NavigationView {
+                VStack {
+                    AddPlayerView()
+                    PlayerListView()
+                }
+                .navigationTitle("Spieler")
+                .navigationBarTitleDisplayMode(.automatic)
+            }
+            .tabItem {
+                Label("Spieler", systemImage: "person.3.sequence")
+            }
+        }
     }
 }
 

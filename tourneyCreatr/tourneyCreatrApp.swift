@@ -12,6 +12,7 @@ struct tourneyCreatrApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(PlayerViewModel())
         }
     }
 }
