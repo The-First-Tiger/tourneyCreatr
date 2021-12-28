@@ -15,8 +15,19 @@ struct PlayerListView: View {
         List {
             ForEach(viewModel.players, id: \.id) { player in
                 PlayerRowView(player: player)
+                    .swipeActions {
+                        Button {
+                            deletePlayer(id: player.id)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
             }
         }
+    }
+    
+    private func deletePlayer(id: String) {
+        viewModel.deletePlayer(id: id)
     }
 }
 

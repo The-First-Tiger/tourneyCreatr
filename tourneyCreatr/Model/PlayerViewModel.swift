@@ -55,4 +55,18 @@ final class PlayerViewModel: ObservableObject {
         }
     }
     
+    func deletePlayer(id: String) {
+        do {
+            let realm = try Realm()
+            let playerId = try ObjectId(string: id)
+            if let player = realm.object(ofType: PlayerRealm.self, forPrimaryKey: playerId) {
+                try realm.write({
+                    realm.delete(player)
+                })
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
