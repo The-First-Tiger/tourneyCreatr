@@ -21,6 +21,11 @@ struct ContentView: View {
             .tabItem {
                 Label("Spieler", systemImage: "person.3.sequence")
             }
+            
+            DrawView()
+                .tabItem {
+                    Label("Auslosung", systemImage: "list.triangle")
+                }
         }
     }
 }

@@ -38,5 +38,6 @@ struct AddPlayerView: View {
 struct AddPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         AddPlayerView()
+            .environmentObject(PlayerViewModel())
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct Player: Identifiable {
     var id: String
@@ -23,4 +24,5 @@ struct Player: Identifiable {
     }
 }
 
-let mockPlayer = Player(playerRealm: PlayerRealm(value: ["id": "001", "vorname": "Max", ["nachname"]: "Mustermann"]))
+let mockPlayer = Player(playerRealm: PlayerRealm(value: ["vorname": "Max", ["nachname"]: "Mustermann"]))
+let wildCardPlayer = Player(playerRealm: PlayerRealm(value: ["vorname": "FREI", ["nachname"]: ""]))
