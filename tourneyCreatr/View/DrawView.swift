@@ -12,9 +12,16 @@ struct DrawView: View {
     @EnvironmentObject private var viewModel: PlayerViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.matches, id: \.id) { match in
-                MatchRowView(match: match)
+        ScrollView {
+            LazyVStack {
+                ForEach(viewModel.matches, id: \.id) { match in
+                    VStack {
+                        MatchRowView(match: match)
+                        if match.matchRecorded == true {
+                            Text("RECORDED")
+                        }
+                    }
+                }
             }
         }
         .onAppear {

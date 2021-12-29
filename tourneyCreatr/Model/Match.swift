@@ -7,9 +7,22 @@
 
 import Foundation
 
-struct Match: Identifiable {
+class Match: ObservableObject {
     var id = UUID()
     var pairs: [Pair]
-    var matchRecorded: Bool = false
-    var matchWinner: Int = 0
+    @Published var matchRecorded: Bool = false
+    @Published var matchWinner: Int = 0
+    
+    init(pairs: [Pair]) {
+        self.pairs = pairs
+    }
+    
+    func recordWinner(winner: Int) {
+        if winner == 1 {
+            matchWinner = 1
+        } else if winner == 2 {
+            matchWinner = 2
+        }
+        matchRecorded = true
+    }
 }

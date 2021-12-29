@@ -13,7 +13,11 @@ struct MatchRowView: View {
     
     var body: some View {
         HStack {
-            PairRowView(pair: match.pairs[0])
+            Button {
+                match.recordWinner(winner: 1)
+            } label: {
+                PairRowView(pair: match.pairs[0])
+            }
             
             PairRowView(pair: match.pairs[1])
         }
