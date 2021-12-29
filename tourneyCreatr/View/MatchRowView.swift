@@ -9,17 +9,22 @@ import SwiftUI
 
 struct MatchRowView: View {
     
-    var match: Match
+    @ObservedObject var match: Match
     
     var body: some View {
-        HStack {
-            Button {
-                match.recordWinner(winner: 1)
-            } label: {
-                PairRowView(pair: match.pairs[0])
+        VStack {
+            HStack {
+                Button {
+                    match.recordWinner(winner: 1)
+                } label: {
+                    PairRowView(pair: match.pairs[0])
+                }
+                
+                PairRowView(pair: match.pairs[1])
             }
-            
-            PairRowView(pair: match.pairs[1])
+            if match.matchRecorded == true {
+                Text("RECORDED")
+            }
         }
     }
 }

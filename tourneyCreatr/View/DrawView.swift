@@ -17,9 +17,6 @@ struct DrawView: View {
                 ForEach(viewModel.matches, id: \.id) { match in
                     VStack {
                         MatchRowView(match: match)
-                        if match.matchRecorded == true {
-                            Text("RECORDED")
-                        }
                     }
                 }
             }
